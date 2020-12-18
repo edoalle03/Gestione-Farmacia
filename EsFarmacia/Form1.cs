@@ -95,13 +95,8 @@ namespace EsFarmacia
         {
             try
             {
-                //controllo se è stato inserito un valore valido per evitare la generazione di un errore non gestito nella creazione del nuovo farmaco
-                if(!double.TryParse(txtPrezzo.Text,out double prezzo))
-                {
-                    prezzo = -1;
-                }
                 //creo il nuovo farmaco
-                Farmaco nuovoFarmaco = new Farmaco(txtNomeFarmaco.Text, txtCasaFarmaceutica.Text, txtCodiceFarmaco.Text, prezzo, txtScadenza.Text);
+                Farmaco nuovoFarmaco = new Farmaco(txtNomeFarmaco.Text, txtCasaFarmaceutica.Text, txtCodiceFarmaco.Text, Convert.ToDouble(txtPrezzo.Text), txtScadenza.Text);
                 //prendo il nome della farmacia
                 string nomeFarmacia = Convert.ToString(cbFarmacie.SelectedItem);
                 //controllo se è stata selezionata una farmacia
